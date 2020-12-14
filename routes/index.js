@@ -3,7 +3,7 @@ var router = express.Router();
 const User = require('../models').User;
 const Admin = require('../models').admin;
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey('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')
+sgMail.setApiKey(' HHHH ')
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
