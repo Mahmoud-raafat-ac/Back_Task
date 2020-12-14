@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IEEE=>login</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+</head>
+<body>
+	<header>
+        <div class="shadow">
+            <form action="/login" method="POST" id="loginfrm">
+				<p>
+					<label>E-mail:</label>
+					<input type="email" name="mail" placeholder="E-mail addrise" required class="in">
+				</p>
+				<p>
+					<label>Password:</label>
+					<input type="Password" name="pass" placeholder="Password" required class="in">
+				</p>
+				<p>
+					<input type="submit" id="btn" value="log In">
+					<button onclick="window.location.href='/register';" id="btn">Sign Up</button>
+                </p>	
+                
+			</form>
+        </div>
+    </header>
+</body>
+</html>

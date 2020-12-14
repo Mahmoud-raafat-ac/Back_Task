@@ -1,0 +1,57 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+    padding: 50px 5px 15px 5px;
+    margin: auto;
+}
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 25px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+img{
+    width: 40%;
+    height: auto;
+}
+p{
+    font-family: "Roboto", sans-serif;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #3f51b5;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 15px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+footer{
+    text-align: center;
+    font-family: 'Roboto';
+}
+.form button:hover,.form button:active,.form button:focus{background: #3a4aa5;}
+.form:hover{box-shadow: 2px 2px 9px 5px rgba(145, 145, 145, 0.44);}
+.form input:hover,.form input:active,.form input:focus{background: rgba(242, 242, 242, 0.76);}

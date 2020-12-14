@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="IEEE - Participants Workshops Application">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>IEEE - Participants Workshops Application</title>        
+        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+        <link rel="icon" href="ieee_blue_logo.png" />
+         <script>
+             function loop(){
+                 var s2 = document.getElementById("swp");
+                 for (i=0; i<=7; i++){
+                     s2.options[i].disabled = false;
+                 }
+             }
+             function remove(){
+                 document.getElementById("second").disabled = false;
+                 var s1 = document.getElementById("first");
+                 var s2 = document.getElementById("swp");
+                if (s1.value == "Analog Electronics"){
+                    loop()
+                    s2.options[0].disabled = true;
+                }else if (s1.value == "Digital Electronics"){
+                    loop()
+                    s2.options[1].disabled = true;
+                }else if (s1.value == "Embedded Systems"){
+                    loop()
+                    s2.options[2].disabled = true;
+                }else if (s1.value == "Arduino"){
+                    loop()
+                    s2.options[3].disabled = true;
+                }else if (s1.value == "Python"){
+                    loop()
+                    s2.options[4].disabled = true;
+                }else if (s1.value == "C++"){
+                    loop()
+                    s2.options[5].disabled = true;
+                }else if (s1.value == "Java"){
+                    loop()
+                    s2.options[6].disabled = true;
+                }else if (s1.value == "Front End"){
+                    loop()
+                    s2.options[7].disabled = true;
+                }
+             }
+        </script>        
+    </head>
+    <body>
+        <div class="login-page">
+          <div class="form">
+            <form method="post" id="subForm">
+              <img src="/images/ieee_blue_logo.png" alt="ieee_Logo" />
+                               
+                <p> IEEE - Participants Workshops Application </p>
+                
+              <input type="text" name="name" placeholder="Name" required/>
+              <input type="tel" name="phone" placeholder="Phone Number" required/>
+              <input type="email" name="mail" placeholder="E-mail" required/>
+              <input type="text" name="university" placeholder="University" required/>
+              <input type="number" name="grad_year" min="2020" max="2060" placeholder="Graduation Year" required/>
+                
+              <input list="fwp" id="first" placeholder="Select Your First Workshop Preference" required onchange="remove()" name="firstWorkshop"/>
+              <datalist id="fwp">
+                  <option value="Analog Electronics" name="Analog Electronics">
+                  <option value="Digital Electronics" name="Digital Electronics">
+                  <option value="Embedded Systems" name="Embedded Systems">
+                  <option value="Arduino" name="Arduino">
+                  <option value="Python" name="Python">
+                  <option value="C++" name="C++">
+                  <option value="Java" name="Java">
+                  <option value="Front End" name="Front End">
+              </datalist>
+                                
+              <input list="swp" id="second" placeholder="Select Your Second Workshop Preference" required disabled name="secondWorkshop"/>
+              <datalist id="swp">
+                  <option value="Analog Electronics" name="Analog Electronics">
+                  <option value="Digital Electronics" name="Digital Electronics">
+                  <option value="Embedded Systems" name="Embedded Systems">
+                  <option value="Arduino" name="Arduino">
+                  <option value="Python" name="Python">
+                  <option value="C++" name="C++">
+                  <option value="Java" name="Java">
+                  <option value="Front End" name="Front End">
+              </datalist>
+                
+            <button>Submit</button>       
+
+            </form>
+          </div>
+            <footer>
+                <strong>IEEE CUSB'21 IT Team All Rights Reserved</strong>
+            </footer>
+        </div>
+    </body>
+</html>

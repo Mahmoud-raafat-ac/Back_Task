@@ -1,0 +1,83 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: calibri;
+}
+
+header{
+    background: url(../images/ieee.jpg) center center fixed;
+    background-size:cover;
+}
+
+header .shadow {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    text-align: center;
+    padding-top: 100px;
+}
+
+form{
+	border:solid gray 1px;
+	border-radius: 5px;
+	background-color: #ffffffc7;
+	margin: 100px auto;
+	padding-top: 15px; 
+	width: 25%;
+}
+
+form:hover{box-shadow: 5px 5px 18px 10px #888;}
+
+form p{
+	margin: 25px;
+	font-size: 20px;
+}
+
+.in{
+	border: 3px;
+	border-color: #000;
+	border-radius: 5px;
+	width:210px;
+	height: 25px;
+	padding: 3px;
+	padding-left: 8px;
+}
+
+#btn{
+	padding: 10px;
+	width: 100px;
+	font-size:15px;
+}
+
+div[id="msg"]{
+	border:solid gray 1px;
+	border-radius: 8px;
+	background-color: #ffffffc7;
+	position: absolute;
+	padding:15px;
+	margin-top: 15px;
+    margin-left: 58px;
+}
+
+/*REGESTRATION PAGE*/
+#registfrm{
+	width: 50%;
+}
+
+#nextin{
+	margin-left: 20px;
+}
+
+textarea{
+	display: inherit;
+    margin-left: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 69vh;
+    height: 180px;
+    resize: none;
+}
+
+/*LOGIN PAGE*/
+button{
+	margin-left: 40px;
+}

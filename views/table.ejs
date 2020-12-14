@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Participants==>Info</title>
+     <style> 
+        table, td, th { 
+         border: 1px solid #ddd; 
+         text-align: left; 
+        } 
+        table { 
+         border-collapse: collapse; 
+         width: 80%; 
+        } 
+        .table-data{ 
+         position: relative; 
+         left:150px; 
+        } 
+        th, td { 
+         padding: 15px; 
+        } 
+    </style>
+</head>
+<body>
+     <h2>Participants ==> Info</h2>
+    <div class="table-data">
+        <table border="1" id="table">
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>University</th>
+                <th>Graduation Year</th>
+                <th>First Workshop</th>
+                <th>Second Workshop</th>
+            </tr>
+            
+            <% for (user in data){ %>
+                <tr> 
+                    <td> <%=data[user].Name %></td>
+                    <td> <%=data[user].Phone %> </td>
+                    <td> <%=data[user].Email %> </td>
+                    <td> <%=data[user].University %> </td>
+                    <td>  <%=data[user].Grad_year %></td>
+                    <td> <%=data[user].First_Workshop %></td>
+                    <td> <%=data[user].Second_Workshop %></td>
+                </tr>
+            <%}%>
+    
+<!--
+            <script>
+                table = document.getElementById("table");
+                for (var i=0; i<data.lenght; i++){
+                    var newRow = table.insertRow(table.lenght);
+                    for(var j=0; j<data[i].lenght; j++){
+                        var cell= newRow.insertCell(j);
+                        cell.innertHtml = data[i][j];  
+                    }
+                } 
+                
+            </script>
+-->
+            
+        </table>
+    </div>
+</body>
+</html>

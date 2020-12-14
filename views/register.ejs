@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IEEE=>Registration</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+</head>
+<body>
+	<header id="home">
+        <div class="shadow">
+
+            <form action="/register" method="POST" id="registfrm">
+				<p>
+					<label>First Name:</label>
+					<input type="text" name="first_name" placeholder="First Name" required class="in" value=<%= f_name %>>
+				
+					<label id="nextin">Last Name:</label>
+					<input type="text" name="last_name" placeholder="Last Name" required class="in" value=<%= l_name %>>
+				</p>
+				<p>
+					<label>E-mail:</label>
+					<input type="email" name="email" placeholder="E-mail addrise" required class="in" value=<%= email %>>
+
+					<label id="nextin">Gender:</label>
+					<select class="in" name="gender">
+						<option value=<%= gender %>>  </option>
+						<option value="0"value=<%= gender %>> Male </option>
+						<option value="1"value=<%= gender %>> Female </option>
+						
+					</select>
+				</p>
+				<p>
+					<label>Password:</label>
+					<input type="Password" name="pass1" placeholder="Password" required class="in">
+				
+					<label id="nextin">Password again:</label>
+					<input type="Password" name="pass2" placeholder="Password again" required class="in">
+				</p>
+				<p>
+					<%= errormessage %>
+				</p>
+				<p>
+					<button id="btn">Submit</button> 
+				</p>	
+				
+            </form>
+            
+        </div>
+	</header>
+</body>
+</html>
