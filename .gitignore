@@ -118,5 +118,5 @@ dist
 # node_modules
 # build
 # npm-debug.log
-.env
+sendgrid.env
 # .DS_Store
