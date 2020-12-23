@@ -61,17 +61,17 @@ router.get('/register', function(req, res) {
 
 /* POST home page. */
 router.post('/login', 
-  passport.authenticate('local', function(err, admin, info) {
-    if (err) { return console.log(err) }
-    if (!admin) {
-      req.session.messages =  [info.message];
-      return res.redirect('/login')
-    }
-    req.logIn(admin, function(err) {
-      if (err) { return console.log(err); }
-      return res.redirect('/');
-    });
-}));
+  passport.authenticate('local', {
+    successRedirect: '/users/user-list',
+    failureRedirect: '/register'
+    })
+);
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+
+  res.redirect('/login');
+};
 
 router.post('/register', function(req, res) {
   let f_name = req.body.first_name;

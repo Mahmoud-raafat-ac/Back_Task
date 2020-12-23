@@ -22,20 +22,16 @@ db.sequelize
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// For Passport
- 
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
- 
-app.use(passport.initialize());
- 
+// For Passport 
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret 
+app.use(passport.initialize()); 
 app.use(passport.session()); // persistent login sessions
-
 require('./config/passport.js');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('keyboard cat'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

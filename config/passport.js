@@ -8,7 +8,7 @@ passport.serializeUser(function(admin, done) {
   });
    
 passport.deserializeUser(function(id, done) {
-    Admin.findById(id, function (err, admin) {
+    Admin.findByPk(id, function (err, admin) {
       done(err, admin);
     });
   });
@@ -17,8 +17,6 @@ passport.use('local', new LocalStrategy(
     {
         usernameField: 'email',
         passwordField: 'password',
-        passReqToCallback: true // allows us to pass back the entire request to the callback
-
     },    
        function(email, password, done) {
         Admin.findOne({where: { email: email }})
@@ -28,9 +26,10 @@ passport.use('local', new LocalStrategy(
                     console.log(email);
                     return done(null, false, {message: 'Email does not exist'})
                 }else{
-                    if (admin.comparePass(password)){
+                    if (admin.password === password){
                     console.log(email);
-                    return done(null, admin, {message: 'Logged in successfully'})
+                    console.log("welcome")
+                    return done(null, admin)
                     }else{
                     console.log(email);
                     return done(null, false, {message: 'Password is not correct'})
