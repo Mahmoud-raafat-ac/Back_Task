@@ -1,43 +1,50 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../models').User;
-const Admin = require('../models').admin;
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey('HHH');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var session = require('express-session');
 
-passport.use(new LocalStrategy(
-  {
-    usernameField: 'email'
-  },
+// var LocalStrategy = require('passport-local').Strategy;
+// var session = require('express-session');
 
-function(email, password, done) {
-  Admin.findOne({where: { email: email }})
-        .then (function(admin)
-          {
-              if(!admin){
-                console.log(email);
-                return done(null, false, {message: 'Email is not correct'})
-              }else{
-                if (admin.comparePass(password)){
-                  console.log(email);
-                  return done(null, admin, {message: 'Logged in successfully'})
-                }else{
-                  console.log(email);
-                  return done(null, false, {message: 'Password is not correct'})
-                }
-              }
-          })
-        .catch(function(err){
-          done(err);
-        });
-  }));
+// passport.use(new LocalStrategy(
+//   {
+//     usernameField: 'email'
+//   },
 
-passport.serializeUser(function (admin, done){
-  done(null, admin.id);
-});
+//   function(email, password, done) {
+//     Admin.findOne({where: { email: email }}, function (err, admin) {
+//       if (err) { return done(err); }
+//       if (!admin) { return done(null, false); }
+//       if (!admin.verifyPassword(password)) { return done(null, false); }
+//       return done(null, admin);
+//     });
+//   }
+// ));
+
+// function(email, password, done) {
+//   Admin.findOne({where: { email: email }})
+//         .then (function(admin)
+//           {
+//               if(!admin){
+//                 console.log(email);
+//                 return done(null, false, {message: 'Email is not correct'})
+//               }else{
+//                 if (admin.comparePass(password)){
+//                   console.log(email);
+//                   return done(null, admin, {message: 'Logged in successfully'})
+//                 }else{
+//                   console.log(email);
+//                   return done(null, false, {message: 'Password is not correct'})
+//                 }
+//               }
+//           })
+//         .catch(function(err){
+//           done(err);
+//         });
+//   }));
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -54,9 +61,17 @@ router.get('/register', function(req, res) {
 
 /* POST home page. */
 router.post('/login', 
-  passport.authenticate('local', { successRedirect: '/',
-                                  failureRedirect: '/login'})
-);
+  passport.authenticate('local', function(err, admin, info) {
+    if (err) { return console.log(err) }
+    if (!admin) {
+      req.session.messages =  [info.message];
+      return res.redirect('/login')
+    }
+    req.logIn(admin, function(err) {
+      if (err) { return console.log(err); }
+      return res.redirect('/');
+    });
+}));
 
 router.post('/register', function(req, res) {
   let f_name = req.body.first_name;
@@ -138,4 +153,5 @@ router.post('/', function(req, res, next) {
     }).catch(console.error);
   
 });
+
 module.exports = router;
